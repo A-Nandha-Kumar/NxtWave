@@ -12,10 +12,16 @@ public class SampleController {
 	String method1() {
 		return "Hello World";
 	}
-	@GetMapping("/")
+	@GetMapping("/dateNow")
     public static String getCurrentDate() {
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return today.format(formatter);
+    }
+	@GetMapping("/dateafter")
+    public String plusDate(){
+        LocalDate plusDate = LocalDate.now().plusDays(100);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return plusDate.format(format);
     }
 }
